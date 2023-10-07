@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.832ef801.css",
+    "main.js": "/static/js/main.33bc0792.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/indiaMap.png": "/static/media/indiaMap.c70f201bffc8e29b2d08.png",
+    "index.html": "/index.html",
+    "main.832ef801.css.map": "/static/css/main.832ef801.css.map",
+    "main.33bc0792.js.map": "/static/js/main.33bc0792.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.832ef801.css",
+    "static/js/main.33bc0792.js"
+  ]
+}
