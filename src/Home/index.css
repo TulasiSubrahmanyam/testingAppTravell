@@ -1,0 +1,175 @@
+.homeSectionPage{
+  background-image: url('https://t3.ftcdn.net/jpg/01/91/95/30/360_F_191953033_gehQATeDoh5z6PyRDbeKyBZuS83CjMEF.jpg');
+   max-height: 100%;
+  min-height: 100vh; 
+  margin-bottom: 550px;
+}
+.homeSection1 {
+  background: url("/public/images/indiaMap.png"); /* Correct path */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #faf7f7;
+  height: 300px;
+  z-index: 1;
+  padding-bottom: 0px;
+  margin: 0px;
+  /* margin: 50px auto; */
+ 
+}
+.section1Heading{
+    font-family:Arial;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: left;
+    margin-left: 110px;
+    padding-top: 100px;
+}  
+.section1para{
+    font-family:Arial;
+    color: white;
+    font-size: 600;
+    text-align: left;
+    margin-left: 110px;
+}  
+.card{
+    background-color: white;
+    border-radius: 10px;
+    margin: 0px auto;
+    width: 100%;
+    padding: 0px;
+   right: 0;
+   left: 0;
+}
+
+  .btnUnclicked{
+    border: solid;
+    border-radius: 5px;
+    border-color: #007bff;
+    border-width: 1px;
+    background-color: transparent;
+    padding: 5px;
+    height: 45px;
+    margin: 10px;
+    color: #007bff;
+    padding-left: 10px;
+    width: 40vw;
+  }
+  .btnclicked{
+   color: white;
+   background-color: #007bff;
+  }
+  .btnmore{
+      border: solid;
+      border-radius: 5px;
+      border-color: #007bff;
+      border-width: 1px;
+      background-color: transparent;
+      padding: 5px;
+      height: 45px;
+      margin: 10px;
+      color: #007bff;
+      padding-left: 10px;
+      width: 40vw;
+  }
+  .btnmoreClicked{
+    color: white;
+    background-color: #007bff;
+  }
+  .icons{
+    width: 25px;
+    height: 25px;
+    margin: 15px;
+  }
+ 
+  /* .bookingBox{
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgb(197, 196, 196);
+    padding: 18px;
+ 
+  } */
+  
+.homeSection1.active-hotel {
+  /* Your styles when activeBtn is "hotel" here */
+  background-image: none !important;
+  padding: 0px;
+  margin: 0px;
+}
+
+.flightHome{
+  border: solid 1px;
+  border-color: rgb(197, 196, 196);
+  border-radius: 5px;
+  padding: 10px;
+}
+.hotelHome{
+  border: solid 1px;
+  border-color: rgb(197, 196, 196);
+  border-radius: 5px;
+  padding: 10px;
+  background-color:transparent;
+}
+.homeHotelFeatues{
+  position: relative;
+  padding-top: 30px;
+  margin: 20px;
+  /* margin-top: 200px;  */
+  /* display: block; */
+}
+
+/* Mobile-specific styles for */
+@media (max-width: 767px) {
+  .homeSectionPage{
+    margin-bottom: 2050px;
+  }
+  .homeSection1 {
+    width: 100vw;
+    padding-bottom: 30px; /* Adjust padding for mobile */
+    /* margin-bottom: 600px;  */
+    height: 250px;
+  }
+  .section1Heading{
+    
+    margin-left: 40px;
+    padding-top: 45px;
+}  
+.section1para{    
+  margin-left: 40px;
+ 
+}  
+
+.homeSection1 .card{
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 95%;
+   
+}
+.btnmore{
+    width: 85vw;
+}
+.btnUnclicked{
+ width:40vw;
+}
+.homeHotelFeatues{
+
+   margin:0px;
+   margin-top: 80px; 
+  /* display: block; */
+}
+  
+}
+
+/* Tablet-specific styles for  */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .homeSection1 {
+   
+    padding-bottom: 40px; /* Adjust padding for tablets */
+    margin: 40px auto; /* Adjust margin for tablets */
+  }
+}
+
+
+
