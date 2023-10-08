@@ -419,7 +419,7 @@ function HotelListPage() {
               <div className='errorContainer'>
                 <Link to='/hotel' className='backSearch'>Back To Search</Link>
                 <img src={"images/errorImg.jpg"} alt="Server Error 404" className='errorImg' />
-                <p className='errorMsg'>No hotels available for the specified city.</p>
+                <p className='errorMsg alignItem-center'>No hotels available for the specified city.</p>
               </div>
             )}
           </div>
