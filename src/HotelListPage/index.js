@@ -10,7 +10,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import HotelSearchBox from '../components/hotelSearchBox.js';
 import './index.css';
 import Pagination from '../Pagination/pagination';
-import GoogleMap from '../googleMap/googleMap';
+// import GoogleMap from '../googleMap/googleMap';
 import HotelFeatures from '../components/hotelFeatures';
 import { ToastContainer ,toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
