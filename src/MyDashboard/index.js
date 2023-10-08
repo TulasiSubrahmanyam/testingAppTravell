@@ -121,9 +121,9 @@ const MyDashboard = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, [token, itemsPerPage]);
+  useEffect(() => {
+    fetchData();
+  }, [token, itemsPerPage]);
 
   const handleDashboardClick = () => {
     setDashboardOpen(true);
