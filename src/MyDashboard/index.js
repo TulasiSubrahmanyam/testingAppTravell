@@ -196,7 +196,7 @@ const MyDashboard = () => {
     setToken(null);
     navigate('/');
   };
-
+{/*profile update */}
   const handleProfileSubmit = async (e) => {
     e.preventDefault();
 
@@ -211,6 +211,8 @@ const MyDashboard = () => {
       }
 
       const userId = decodedToken.user.id;
+      console.log("userId",userId)
+      
       const updatedUserObject = {
         username: user.username,
         email: user.email,
@@ -343,11 +345,12 @@ const MyDashboard = () => {
             <div
               className={`d-flex flex-row ${activeTab === 'logout' ? 'active-item' : ''}`}
               onClick={() => {
+                handleTabClick('logout');
                 if (activeTab === 'logout') {
                   handleLogout();
-                } else {
-                  handleTabClick('logout');
-                }
+                } 
+                  
+              
               }}
             >
               <LogoutOutlinedIcon style={{ fontSize: '20px', margin: '5px' }} />
