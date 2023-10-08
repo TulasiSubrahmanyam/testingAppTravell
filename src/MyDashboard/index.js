@@ -99,11 +99,13 @@ const MyDashboard = () => {
         const responseData = await response.json();
         console.log("Response Data:", responseData);
        
-        setIsLoading(false);
+    
         if (responseData && responseData.bookings) {
           setData(responseData);
+          console.log(data)
           setTotalItems(responseData.bookings.length);
           setTotalPages(Math.ceil(responseData.bookings.length / itemsPerPage));
+          setIsLoading(false);
         } else {
           // Handle the case where responseData.bookings is undefined or null
           setTotalItems(0);
