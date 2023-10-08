@@ -101,7 +101,7 @@ const MyDashboard = () => {
        
     
         if (responseData && responseData.bookings) {
-          setData(response);
+          setData(responseData);
           console.log("setData",data)
           setTotalItems(responseData.bookings.length);
           setTotalPages(Math.ceil(responseData.bookings.length / itemsPerPage));
@@ -121,9 +121,9 @@ const MyDashboard = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, [token, itemsPerPage]);
+  // useEffect(() => {
+  //   fetchData();
+  // }, [token, itemsPerPage]);
 
   const handleDashboardClick = () => {
     setDashboardOpen(true);
