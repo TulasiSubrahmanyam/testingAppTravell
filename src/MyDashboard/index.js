@@ -114,7 +114,7 @@ const MyDashboard = () => {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
    // fetchData();
-   if (activeTab === 'logout') {
+   if (tab === 'logout') {
     handleLogout();
    } 
   };
