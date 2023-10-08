@@ -24,7 +24,7 @@ const MyDashboard = () => {
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isLogout, setLogout] = useState(false);
   const [activeItem, setActiveItem] = useState('dashboard');
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [searchQuery, setSearchQuery] = useState('');
@@ -101,7 +101,7 @@ const MyDashboard = () => {
        
     
         if (responseData && responseData.bookings) {
-          setData(response);
+          setData(responseData.bookings);
           console.log("setData",data)
           setTotalItems(responseData.bookings.length);
           setTotalPages(Math.ceil(responseData.bookings.length / itemsPerPage));
