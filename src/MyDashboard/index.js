@@ -479,7 +479,7 @@ const MyDashboard = () => {
                 />
               </div>
             </div>
-            {!data.bookings && data.bookings.length === 0 ?(
+            {(!data.bookings && data.bookings.length === 0) ?(
               <p>There are no bookings to display.</p>
             ): (
               <div>
