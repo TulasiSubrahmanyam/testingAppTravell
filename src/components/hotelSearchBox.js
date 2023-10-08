@@ -138,11 +138,11 @@
       }
     }, [city, checkIn, checkOut, adults, children, room, navigate]);
   
-    const openModalBox = useCallback(() => {
+    const openModalBox =() => {
       setIsModalOpen(!ismodalOpen);
-    }, [ismodalOpen]);
+    }//, [ismodalOpen]);
   
-    const incrementTravelers = useCallback((type) => {
+    const incrementTravelers = (type) => {
       if (type === 'adults') {
         setAdults(adults + 1);
       } else if (type === 'children') {
@@ -150,9 +150,9 @@
       } else if (type === 'room') {
         setRoom(room + 1);
       }
-    }, [adults, children, room]);
+    }//, [adults, children, room]);
     
-    const decrementTravelers = useCallback((type) => {
+    const decrementTravelers = (type) => {
       if (type === 'adults' && adults > 1) {
         setAdults(adults - 1);
       } else if (type === 'children' && children > 0) {
@@ -160,12 +160,12 @@
       } else if (type === 'room' && room > 1) {
         setRoom(room - 1);
       }
-    }, [adults, children, room]);
+    }//, [adults, children, room]);
     
     const totalPersons = useMemo(() => adults + children, [adults, children]);
     const totalRooms = room;
   
-    const handleInputChange = useCallback((e) => {
+    const handleInputChange = (e) => {
       const value = e.target.value;
       setCity(value);
   
@@ -177,9 +177,9 @@
   
       setSuggestions(filteredSuggestions);
       setSelectedSuggestionIndex(-1);
-    }, [city, predefinedSuggestions]);
+    }//, [city, predefinedSuggestions]);
   
-    const handleKeyDown = useCallback((e) => {
+    const handleKeyDown = (e) => {
       if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
         e.preventDefault();
         if (e.key === 'ArrowDown' && selectedSuggestionIndex < suggestions.length - 1) {
@@ -199,9 +199,9 @@
           }
         }
       }
-    }, [selectedSuggestionIndex, suggestions]);
+     }//, [selectedSuggestionIndex, suggestions]);
   
-    const scrollSuggestionIntoView = useCallback((index) => {
+     const scrollSuggestionIntoView = (index) => {
       const suggestionList = document.querySelector('.suggestionBox');
       if (suggestionList) {
         const suggestionElement = suggestionList.querySelector(`li:nth-child(${index + 1})`);
@@ -209,12 +209,12 @@
           suggestionList.scrollTop = suggestionElement.offsetTop;
         }
       }
-    }, []);
-  
-    const handleSuggestionClick = useCallback((suggestion) => {
+    };
+    
+    const handleSuggestionClick = (suggestion) => {
       setCity(suggestion);
       setSuggestions([]);
-    }, []);
+    };
   
     return (
        <div className='container'>
