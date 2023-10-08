@@ -250,6 +250,16 @@ const MyDashboard = () => {
         pauseOnHover: true,
         draggable: true,
       });
+    // Clear the input fields
+    setUser({
+      username: '',
+      email: '',
+      phoneNumber: '',
+      address: '',
+      city: '',
+      state: '',
+      country: '',
+    });
     } catch (error) {
       console.error('Error updating profile data:', error);
 
