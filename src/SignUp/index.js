@@ -82,7 +82,7 @@ const responseGoogle = async (response) => {
     console.log(serverResponse.data);
 
     // Check if the login was successful based on server response
-    if (serverResponse.status === 200 && serverResponse.data.success) {
+    if (serverResponse.status === 200 ) {
       const newToken = serverResponse.data.token;
       Cookies.set('jwtToken', newToken, { expires: 7 });
       console.log('Token stored in cookies:', newToken);
