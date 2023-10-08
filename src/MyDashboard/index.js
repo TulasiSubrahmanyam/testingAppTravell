@@ -96,16 +96,15 @@ const MyDashboard = () => {
           throw new Error('Network response was not ok');
         }
 
-       // const responseData = await response.json();
-       setData(response);
-       console.log("setData",data)
-        console.log("Response Data:", data);
+        const responseData = await response.json();
+        console.log("Response Data:", responseData);
        
     
-        if (data && data.bookings) {
-         
-          setTotalItems(data.bookings.length);
-          setTotalPages(Math.ceil(data.bookings.length / itemsPerPage));
+        if (responseData && responseData.bookings) {
+          setData(responseData.bookings);
+          console.log("setData",data)
+          setTotalItems(responseData.bookings.length);
+          setTotalPages(Math.ceil(responseData.bookings.length / itemsPerPage));
           setIsLoading(false);
         } else {
           // Handle the case where responseData.bookings is undefined or null
@@ -122,15 +121,15 @@ const MyDashboard = () => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log("Data in useEffect:", data);
-  // }, [data]);
+  useEffect(() => {
+    console.log("Data in useEffect:", data);
+  }, [data]);
 
-  // useEffect(() => {
-  //   if (isDashboardOpen || isBookingsOpen) {
-  //     fetchData();
-  //   }
-  // }, [isDashboardOpen, isBookingsOpen, token]);
+  useEffect(() => {
+    if (isDashboardOpen || isBookingsOpen) {
+      fetchData();
+    }
+  }, [isDashboardOpen, isBookingsOpen, token]);
   
 
   const handleDashboardClick = () => {
