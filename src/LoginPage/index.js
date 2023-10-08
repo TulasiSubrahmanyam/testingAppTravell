@@ -14,7 +14,7 @@ function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     try {
       if (!username.trim() || !password.trim()) {
         toast.error('Username and password are required.', {
@@ -35,28 +35,79 @@ function LoginPage() {
           email: username, // Assuming you use email as username
           password: password,
         });
-
+  
         const newToken = response.data.token;
-
+  
         // Set the token in cookies with a 7-day expiration
         Cookies.set('jwtToken', newToken, { expires: 7 });
         console.log('Token stored in cookies:', newToken);
-
+  
         // Store the token in local storage
         localStorage.setItem('jwtToken', newToken);
         console.log('Token stored in local storage:', newToken);
-
+  
         // Set the token in context
         setToken(newToken);
-
+  
         // Redirect to '/myprofile' after setting the token
         navigate('/');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Login failed. Please check the console for details.');
+  
+      if (error.response) {
+        const { status, data } = error.response;
+        
+        if (status === 401) {
+          // Unauthorized (incorrect username or password)
+          toast.error('Incorrect username or password.', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            style: {
+              color: 'white',
+              background: 'red',
+            },
+          });
+        } else {
+          // Other error, display a generic error message
+          toast.error('Login failed. Please try again later.', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            style: {
+              color: 'white',
+              background: 'red',
+            },
+          });
+        }
+      } else {
+        // Network error, display a generic error message
+        toast.error('Network error. Please check your internet connection and try again.', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          style: {
+            color: 'white',
+            background: 'red',
+          },
+        });
+      }
     }
   };
+  
 
   // Check for token in cookies on page load
   useEffect(() => {
