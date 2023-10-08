@@ -224,7 +224,7 @@ const MyDashboard = () => {
         city: user.city,
         state: user.state,
         country: user.country,
-      };
+      };      
 
       const response = await fetch(`https://travelapp-l6go.onrender.com/api/users/usersUpdate/${userId}`, {
         method: 'PUT',
