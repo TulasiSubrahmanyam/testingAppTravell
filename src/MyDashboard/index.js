@@ -126,7 +126,7 @@ const MyDashboard = () => {
   // }, [data]);
 
   useEffect(() => {
-    if (isDashboardOpen) {
+    if (isDashboardOpen || isBookingsOpen) {
       fetchData();
     }
   }, [isDashboardOpen]);
