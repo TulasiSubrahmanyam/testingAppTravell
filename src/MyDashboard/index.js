@@ -65,7 +65,7 @@ const MyDashboard = () => {
       return null;
     }
   };
-
+{/*handle Fetch the booking info */}
   const fetchData = async (page = 1) => {
     try {
       if (!token) return;
@@ -114,6 +114,9 @@ const MyDashboard = () => {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
    // fetchData();
+   if (activeTab === 'logout') {
+    handleLogout();
+   } 
   };
 
   const handleItemsPerPageChange = (e) => {
@@ -212,7 +215,7 @@ const MyDashboard = () => {
 
       const userId = decodedToken.user.id;
       console.log("userId",userId)
-      
+
       const updatedUserObject = {
         username: user.username,
         email: user.email,
@@ -346,11 +349,9 @@ const MyDashboard = () => {
               className={`d-flex flex-row ${activeTab === 'logout' ? 'active-item' : ''}`}
               onClick={() => {
                 handleTabClick('logout');
-                if (activeTab === 'logout') {
-                  handleLogout();
-                } 
-                  
-              
+                // if (activeTab === 'logout') {
+                //   handleLogout();
+                //  } 
               }}
             >
               <LogoutOutlinedIcon style={{ fontSize: '20px', margin: '5px' }} />
