@@ -79,6 +79,7 @@ const MyDashboard = () => {
 
       if (decodedToken && decodedToken.exp * 1000 > Date.now()) {
         const userEmail = decodedToken.user.email;
+        console.log("User Email:", decodedToken.user.email);
         const response = await fetch(`https://travelapp-l6go.onrender.com/api/roombookings/user?page=${page}`, {
           method: 'POST',
           headers: {
@@ -93,6 +94,7 @@ const MyDashboard = () => {
         }
 
         const responseData = await response.json();
+        console.log("Response Data:", responseData);
         setData(responseData);
         console.log("bookedData",data)
         setTotalItems(responseData.bookings.length);
@@ -105,12 +107,13 @@ const MyDashboard = () => {
     } catch (error) {
       console.error('Error fetching data:', error);
       setIsLoading(false);
+      setData([])
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, [token, itemsPerPage]);
+  // useEffect(() => {
+  //   fetchData();
+  // }, [token, itemsPerPage]);
 
   const handleDashboardClick = () => {
     setDashboardOpen(true);
