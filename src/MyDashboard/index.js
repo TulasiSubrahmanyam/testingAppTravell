@@ -122,6 +122,10 @@ const MyDashboard = () => {
   };
 
   useEffect(() => {
+    console.log("Data in useEffect:", data);
+  }, [data]);
+  
+  useEffect(() => {
     if (isDashboardOpen) {
       fetchData();
     }
