@@ -325,6 +325,7 @@ function Home() {
    </div>
 
       <div className='homeHotelFeatues'>
+      <h1>HotelFeatures new</h1>
         <HotelFeatures/>      
       </div>
   </div>
