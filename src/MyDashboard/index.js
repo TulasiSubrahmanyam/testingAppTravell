@@ -98,12 +98,17 @@ const MyDashboard = () => {
 
         const responseData = await response.json();
         console.log("Response Data:", responseData);
-        setData(responseData);
-        console.log("bookedData",data)
-        setTotalItems(responseData.bookings.length);
-        setTotalPages(Math.ceil(responseData.bookings.length / itemsPerPage));
-        console.log("setTotalPages",totalPages)
+       
         setIsLoading(false);
+        if (responseData && responseData.bookings) {
+          setData(responseData);
+          setTotalItems(responseData.bookings.length);
+          setTotalPages(Math.ceil(responseData.bookings.length / itemsPerPage));
+        } else {
+          // Handle the case where responseData.bookings is undefined or null
+          setTotalItems(0);
+          setTotalPages(0);
+        }
       } else {
         Cookies.remove('jwtToken');
       }
