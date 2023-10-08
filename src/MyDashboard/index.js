@@ -129,7 +129,8 @@ const MyDashboard = () => {
     if (isDashboardOpen || isBookingsOpen) {
       fetchData();
     }
-  }, [isDashboardOpen]);
+  }, [isDashboardOpen, isBookingsOpen, token]);
+  
 
   const handleDashboardClick = () => {
     setDashboardOpen(true);
