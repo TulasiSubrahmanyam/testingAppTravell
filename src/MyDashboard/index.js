@@ -446,7 +446,9 @@ const MyDashboard = () => {
           <div className='noOfCount '>
             <LocalMallOutlinedIcon style={{ fontSize: '50px', margin: '5px', color: "rgb(65, 64, 64)" }} />
             <h6>Total Bookings</h6>
-            <p>{data.bookingCount}</p>
+            {data && data.bookingCount !== undefined && (
+              <p>Booking Count: {data.bookingCount}</p>
+            )}
           </div>
           <div className='noOfCount'>
           <EventBusyOutlinedIcon style={{ fontSize: '50px', margin: '5px', color: "rgb(65, 64, 64)" }} />
