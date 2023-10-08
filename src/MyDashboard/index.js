@@ -342,7 +342,13 @@ const MyDashboard = () => {
             <hr style={{ marginTop: '0px', marginBottom: '0px' }} />
             <div
               className={`d-flex flex-row ${activeTab === 'logout' ? 'active-item' : ''}`}
-              onClick={() => handleTabClick('logout')}
+              onClick={() => {
+                if (activeTab === 'logout') {
+                  handleLogout();
+                } else {
+                  handleTabClick('logout');
+                }
+              }}
             >
               <LogoutOutlinedIcon style={{ fontSize: '20px', margin: '5px' }} />
               <h1 className='logout'>Logout</h1>
@@ -407,7 +413,7 @@ const MyDashboard = () => {
                   </div>
                 </div>
                 {(!data || data.length === 0) ? (
-                  <p className='text-center'>There are no bookings to display.</p>
+                  <p className='text-center m-s'>There are no bookings to display.</p>
                 ) : (
                   <div>
                     <table className='tableDataBooking mt-4'>
