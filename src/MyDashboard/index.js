@@ -102,7 +102,7 @@ const MyDashboard = () => {
     
         if (responseData && responseData.bookings) {
           setData(responseData.bookings);
-          console.log("setData",data)
+          
           setTotalItems(responseData.bookings.length);
           setTotalPages(Math.ceil(responseData.bookings.length / itemsPerPage));
           setIsLoading(false);
@@ -114,6 +114,7 @@ const MyDashboard = () => {
       } else {
         Cookies.remove('jwtToken');
       }
+      console.log("setData",data)
     } catch (error) {
       console.error('Error fetching data:', error);
       setIsLoading(false);
@@ -453,9 +454,10 @@ const MyDashboard = () => {
           <div className='noOfCount '>
             <LocalMallOutlinedIcon style={{ fontSize: '50px', margin: '5px', color: "rgb(65, 64, 64)" }} />
             <h6>Total Bookings</h6>
-            {data && data.bookingCount !== undefined && (
+            {/*data && data.bookingCount !== undefined && (
               <p>Booking Count: {data.bookingCount}</p>
-            )}
+            )*/}
+            <p>{data.bookings.length}</p>
           </div>
           <div className='noOfCount'>
           <EventBusyOutlinedIcon style={{ fontSize: '50px', margin: '5px', color: "rgb(65, 64, 64)" }} />
