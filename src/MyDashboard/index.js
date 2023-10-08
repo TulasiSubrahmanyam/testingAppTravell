@@ -117,14 +117,14 @@ const MyDashboard = () => {
     } catch (error) {
       console.error('Error fetching data:', error);
       setIsLoading(false);
-      setData([])
+     // setData([])
     }
   };
 
-  useEffect(() => {
-    console.log("Data in useEffect:", data);
-  }, [data]);
-  
+  // useEffect(() => {
+  //   console.log("Data in useEffect:", data);
+  // }, [data]);
+
   useEffect(() => {
     if (isDashboardOpen) {
       fetchData();
