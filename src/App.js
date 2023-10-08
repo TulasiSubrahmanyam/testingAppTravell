@@ -45,24 +45,31 @@ function App() {
               <Header />
               <div className='contentElement'>
                 <ErrorBoundary>
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/flight" element={<Flight />} />
-                    <Route path="/hotel" element={<Hotel />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/signUp" element={<SignUp />} />
-                    <Route path="/myDashboard" element={<MyDashboard />} />
-                    <Route path="/hotel/hotelsList" element={<HotelListPage />} />
-                    <Route path="/hotel/roomdetails" element={<HotelRoomDetails />} />
-                    <Route path="/room/booking" element={<RoomBooking />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/offers" element={<Offers />} />
-                    <Route path="/careers" element={<Careers />} />
-                    <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
-                    <Route path="/HowtoBook" element={<HowToBook />} />
-                    <Route path="/TermsOfUse" element={<TermsOfUse />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
+                  {isLoginOrSignupPage ? (
+                    // Render routes without the footer on login/signup pages
+                    <Routes>
+                      <Route path="/login" element={<LoginPage />} />
+                      <Route path="/signUp" element={<SignUp />} />
+                    </Routes>
+                  ) : (
+                    // Render routes with the footer on other pages
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/flight" element={<Flight />} />
+                      <Route path="/hotel" element={<Hotel />} />
+                      <Route path="/myDashboard" element={<MyDashboard />} />
+                      <Route path="/hotel/hotelsList" element={<HotelListPage />} />
+                      <Route path="/hotel/roomdetails" element={<HotelRoomDetails />} />
+                      <Route path="/room/booking" element={<RoomBooking />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/offers" element={<Offers />} />
+                      <Route path="/careers" element={<Careers />} />
+                      <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+                      <Route path="/HowtoBook" element={<HowToBook />} />
+                      <Route path="/TermsOfUse" element={<TermsOfUse />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  )}
                 </ErrorBoundary>
               </div>
               {!isLoginOrSignupPage && <Footer />}
