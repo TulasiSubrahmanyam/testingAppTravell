@@ -79,7 +79,10 @@ const MyDashboard = () => {
 
       if (decodedToken && decodedToken.exp * 1000 > Date.now()) {
         const userEmail = decodedToken.user.email;
+        console.log("Decoded Token:", decodedToken);
+
         console.log("User Email:", decodedToken.user.email);
+
         const response = await fetch(`https://travelapp-l6go.onrender.com/api/roombookings/user?page=${page}`, {
           method: 'POST',
           headers: {
