@@ -101,8 +101,8 @@ const MyDashboard = () => {
        
     
         if (responseData && responseData.bookings) {
-          setData(responseData);
-          console.log(data)
+          setData(response);
+          console.log("setData",data)
           setTotalItems(responseData.bookings.length);
           setTotalPages(Math.ceil(responseData.bookings.length / itemsPerPage));
           setIsLoading(false);
