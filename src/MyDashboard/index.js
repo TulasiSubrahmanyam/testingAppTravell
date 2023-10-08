@@ -91,8 +91,9 @@ const MyDashboard = () => {
       }
 
       const responseData = await response.json();
-      const bookings = responseData?.bookings || [];
       console.log("Response Data",responseData)
+      const bookings = responseData?.bookings || [];     
+
       setData(bookings);
       console.log("setData",data)
       setTotalItems(bookings.length);
@@ -406,7 +407,7 @@ const MyDashboard = () => {
                   </div>
                 </div>
                 {(!data || data.length === 0) ? (
-                  <p>There are no bookings to display.</p>
+                  <p className='text-center'>There are no bookings to display.</p>
                 ) : (
                   <div>
                     <table className='tableDataBooking mt-4'>
