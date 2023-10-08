@@ -49,11 +49,7 @@ const MyDashboard = () => {
     }
   }, [setToken]);
 
-  useEffect(() => {
-    if (activeTab === 'dashboard' || activeTab === 'bookings') {
-      fetchData();
-    }
-  }, [activeTab, token]);
+
 
   useEffect(() => {
     const storedCanceledBookingCount = localStorage.getItem('canceledBookingCount');
@@ -96,8 +92,9 @@ const MyDashboard = () => {
 
       const responseData = await response.json();
       const bookings = responseData?.bookings || [];
-
+      console.log("Response Data",responseData)
       setData(bookings);
+      console.log("setData",data)
       setTotalItems(bookings.length);
       setTotalPages(Math.ceil(bookings.length / itemsPerPage));
       setIsLoading(false);
@@ -107,9 +104,15 @@ const MyDashboard = () => {
     }
   };
 
+  useEffect(() => {
+    if (activeTab === 'dashboard' || activeTab === 'bookings') {
+      fetchData();
+    }
+  }, [activeTab, token]);
+
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-    fetchData();
+   // fetchData();
   };
 
   const handleItemsPerPageChange = (e) => {
