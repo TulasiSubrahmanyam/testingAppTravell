@@ -354,7 +354,7 @@
             </div>
           </div>
         </div>        
-        <ToastContainer position='top-center' autoClose={3000} className="toastContainer" />
+        <ToastContainer position='top-center ' autoClose={3000} className="toastContainer" />
       </div>
       </div>
     );

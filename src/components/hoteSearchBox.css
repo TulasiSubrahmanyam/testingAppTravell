@@ -76,27 +76,7 @@
   width: 300px;
 }
 
-/* .hotelCard{
-  background-color: white;
-  border-radius: 10px;
-  margin-top: 30px;
-} */
-/* .btnUnclicked{
-  border: solid;
-  border-radius: 5px;
-  border-color: #007bff;
-  border-width: 1px;
-  background-color: transparent;
-  padding: 5px;
-  height: 45px;
-  margin: 10px;
-  color: #007bff;
-  padding-left: 10px;
-} */
-/* .btnclicked{
- color: white;
- background-color: #007bff;
-} */
+
 .icons{
   width: 25px;
   height: 25px;
@@ -247,10 +227,11 @@ transform: translate(-50%, -50%);
     width: 100%;
   }
   .suggestionBox {    
-    width: 90%; 
-    padding: 0px; 
-   
-    margin-right: 10px;
+    /* min-width: 100px; */
+    max-width:100%; /* Remove any maximum width constraints */
+    padding: 0px;
+    margin-top: 0px;
+    position: relative;
   }
   .inputBox{
     width: 100%;
@@ -260,14 +241,18 @@ transform: translate(-50%, -50%);
     font-size: 18px;
   }
   .toastContainer{
-    width: 70%;
-    margin: 20px auto;
+    width: 100%;
   }
+ 
 }
 
 /* Tablet-specific styles for  */
 @media (min-width: 768px) and (max-width: 1023px) {
-  
+  .suggestionBox {
+    position: relative;   
+    width: 100%; 
+    padding: 0px;     
+  }
 }
 
 
