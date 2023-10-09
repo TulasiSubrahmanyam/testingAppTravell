@@ -2,7 +2,9 @@ import React, { useState, useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import Cookies from 'js-cookie';
+import jwtDecode from 'jwt-decode';
 import {store} from '../App';
 import './index.css';
 
@@ -108,6 +110,64 @@ function LoginPage() {
     }
   };
   
+{/*google login */}
+const responseGoogle = async (response) => {
+  try {
+    console.log('Google OAuth response:', response);
+
+    if (!response.credential) {
+      console.error('ID token not found in the response');
+      return;
+    }
+
+    const idToken = response.credential;
+    console.log('Received idToken:', idToken);
+
+    if (!idToken || !idToken.includes('.')) {
+      console.error('Invalid idToken format');
+      return;
+    }
+
+    const credentialResponse = jwtDecode(idToken);
+    console.log('Decoded JWT:', credentialResponse);
+
+    const userEmail = credentialResponse.email;
+    const userName = credentialResponse.name;
+
+    const serverResponse = await axios.post(
+      'https://travelapp-l6go.onrender.com/api/users/google-login', // Remove one forward slash here
+      {
+        email: userEmail,
+        username: userName,
+        credential: idToken,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        },
+      }
+    );
+
+    console.log(serverResponse.data);
+
+    // Check if the login was successful based on server response
+    if (serverResponse.status === 200 ) {
+      const newToken = serverResponse.data.token;
+      Cookies.set('jwtToken', newToken, { expires: 7 });
+      console.log('Token stored in cookies:', newToken);
+      // Store the token in local storage
+      localStorage.setItem('jwtToken', newToken);
+      console.log('Token stored in local storage:', newToken);
+      setToken(newToken);
+      navigate('/');
+    } else {
+      console.error('Login failed. Server response:', serverResponse);
+      // Handle failed login (e.g., show an error message)
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
 
   // Check for token in cookies on page load
   useEffect(() => {
@@ -151,11 +211,27 @@ function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit">Login</button>
-            <p style={{ textAlign: 'center', marginTop: '10px' }}>
+            <p style={{ textAlign: 'center', marginTop: '2px' }}>
               Don't have an account? <Link to="/signUp">Sign up here</Link>
             </p>
           </div>
         </form>
+        <p style={{textAlign:"center",fontSize:"16px",fontWeight:"550"}}>or</p>
+        <div className="google-signin-container">
+        <GoogleOAuthProvider clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com">
+          <GoogleLogin
+            onSuccess={responseGoogle}
+            onError={() => {
+              console.log('Login Failed');
+            }}
+            theme='outline'
+            text="signup_with"
+            shape='rectangular'
+            width='200px'
+            size='large'
+          />
+        </GoogleOAuthProvider>
+      </div>     
       </div>
     </div>
   );

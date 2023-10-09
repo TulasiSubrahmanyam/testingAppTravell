@@ -169,12 +169,11 @@ const responseGoogle = async (response) => {
             theme='outline'
             text="signup_with"
             shape='rectangular'
-            width='150px'
+            width='200px'
             size='large'
           />
         </GoogleOAuthProvider>
-      </div>
-      
+      </div>     
       
         </form>
       </div>
