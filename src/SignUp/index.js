@@ -175,18 +175,17 @@ const responseGoogle = async (response) => {
         
         </div>
         <div className="google-signin d-block d-md-none">
-        
+        <GoogleOAuthProvider clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com">
         <GoogleLogin
-         clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com"
           onSuccess={responseGoogle}
           onError={() => {
             console.log('Login Failed');
           }}
           border="none"       
-          shadow="none"  
+          shadow="none"      
           className="google-signin-button"
         />
-   
+      </GoogleOAuthProvider>
       </div>
       
         </form>
