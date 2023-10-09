@@ -177,6 +177,7 @@ const responseGoogle = async (response) => {
       
         </form>
       </div>
+      <ToastContainer className="toastContainer"/>
     </div>
   );
 }

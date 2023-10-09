@@ -72,6 +72,13 @@ body{
     font-weight: 550;
     outline: none;
   }
+  .google-login-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    height: 40px;
+    width: 100%;
+
+  }
   @media (max-width: 767px){
     .loginCard{
      
@@ -91,5 +98,9 @@ body{
     padding: 20px;
     margin: 0px;
    
+}
+.toastContainer{
+  width: 70%;
+  margin: 20px auto;
 }
   }

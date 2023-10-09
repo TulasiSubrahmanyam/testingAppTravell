@@ -280,4 +280,8 @@
     content: attr(data-label);
     font-weight: bold;
   } */
+  .toastContainer{
+    width: 70%;
+    margin: 20px auto;
+  }
 }

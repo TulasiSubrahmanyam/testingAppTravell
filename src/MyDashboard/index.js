@@ -631,7 +631,7 @@ const MyDashboard = () => {
           </div>
         )}
       </div>
-      <ToastContainer />
+      <ToastContainer className="toastContainer"/>
     </div>
   );
 };

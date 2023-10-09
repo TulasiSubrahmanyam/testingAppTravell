@@ -91,7 +91,10 @@
       margin: 0px;
     
   }
- 
+  .toastContainer{
+    width: 70%;
+    margin: 20px auto;
+  }
   /* .google-signin-button {
     width: 100%; 
   } */

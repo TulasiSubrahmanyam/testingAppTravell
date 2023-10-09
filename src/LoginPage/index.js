@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
@@ -111,7 +111,7 @@ function LoginPage() {
   };
   
 {/*google login */}
-const responseGoogle = async (response) => {
+const responseGoogles = async (response) => {
   try {
     console.log('Google OAuth response:', response);
 
@@ -215,24 +215,26 @@ const responseGoogle = async (response) => {
               Don't have an account? <Link to="/signUp">Sign up here</Link>
             </p>
           </div>
+          <p style={{textAlign:"center",fontSize:"16px",fontWeight:"550"}}>or</p>
+          <div className="google-login-container">
+          <GoogleOAuthProvider clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com">
+            <GoogleLogin
+              onSuccess={responseGoogles}
+              onError={() => {
+                console.log('Login Failed');
+              }}
+              theme='outline'
+              text="login_with"
+              shape='rectangular'
+              width='200px'
+              size='large'
+            />
+          </GoogleOAuthProvider>
+        </div> 
         </form>
-        <p style={{textAlign:"center",fontSize:"16px",fontWeight:"550"}}>or</p>
-        <div className="google-signin-container">
-        <GoogleOAuthProvider clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com">
-          <GoogleLogin
-            onSuccess={responseGoogle}
-            onError={() => {
-              console.log('Login Failed');
-            }}
-            theme='outline'
-            text="signup_with"
-            shape='rectangular'
-            width='200px'
-            size='large'
-          />
-        </GoogleOAuthProvider>
-      </div>     
+        
       </div>
+      <ToastContainer className="toastContainer"/>
     </div>
   );
 }

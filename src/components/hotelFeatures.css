@@ -81,6 +81,10 @@
     .detailButton{
         margin-top: 10px;
     }
+    .toastContainer{
+        width: 70%;
+        margin: 20px auto;
+      }
   }
   
   /* Tablet-specific styles for  */
