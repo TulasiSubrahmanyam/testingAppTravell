@@ -84,14 +84,22 @@
       console.log("Search button clicked")
       setIsLoading(true); // Show loading indicator
       try {
-         
         if (!city) {
-          const errorMessage = 'Please enter a city.';
-          setErrorMessage(errorMessage);
-          toast.error(errorMessage);
+          // Display an error toast
+          toast.error('Please enter a city.', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000,
+          });
           setIsLoading(false);
-          return;
+          return; // Stop further execution
         }
+        // if (!city) {
+        //   const errorMessage = 'Please enter a city.';
+        //   setErrorMessage(errorMessage);
+        //   toast.error(errorMessage);
+        //   setIsLoading(false);
+        //   return;
+        // }
   
         const response = await axios.get(`https://travelapp-l6go.onrender.com/api/hotels/search`, {
           params: {
