@@ -105,7 +105,7 @@ if (!response.ok) {
   console.log("ResponceData",responseData)
   const bookings = responseData?.bookings || [];
   setData(bookings);
-  console.log("setData",data``)
+  console.log("setData",data)
   setTotalItems(bookings.length);
   setTotalPages(Math.ceil(bookings.length / itemsPerPage));
   setIsLoading(false);
