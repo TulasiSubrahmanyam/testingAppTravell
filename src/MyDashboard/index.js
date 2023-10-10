@@ -28,8 +28,6 @@ const MyDashboard = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
   const [canceledBookingCount, setCanceledBookingCount] = useState(0);
-   // Initialize decodedToken with an initial value
-   const [decodedToken, setDecodedToken] = useState({ user: { username: '' } });
   const [user, setUser] = useState({
     username: '',
     email: '',
@@ -39,17 +37,16 @@ const MyDashboard = () => {
     state: '',
     country: '',
   });
-  //const decodedToken = jwtDecode(token);
+
   useEffect(() => {
     const storedToken = Cookies.get('jwtToken');
-   // const decodedToken = decodeToken(storedToken);
-   if (storedToken) {
-    const decoded = jwtDecode(storedToken);
-    setDecodedToken(decoded);
-    setToken(storedToken);
-  } else {
-    Cookies.remove('jwtToken');
-  }
+    const decodedToken = decodeToken(storedToken);
+
+    if (storedToken && decodedToken && decodedToken.exp * 1000 > Date.now()) {
+      setToken(storedToken);
+    } else {
+      Cookies.remove('jwtToken');
+    }
   }, [setToken]);
 
 
@@ -329,7 +326,7 @@ const MyDashboard = () => {
         <div>
           <div className='userCard'>
             <AccountCircleIcon style={{ color: 'lightgray', fontSize: '50px', marginTop: '30px' }} />
-            <h3 className='userName'>{decodedToken.user.username}</h3>
+            <h3 className='userName'>{user.username}</h3>
             <p style={{ fontSize: '15px' }}>Welcome Back</p>
           </div>
 
@@ -634,7 +631,7 @@ const MyDashboard = () => {
           </div>
         )}
       </div>
-      <ToastContainer className="toastContainer"/>
+      <ToastContainer />
     </div>
   );
 };
