@@ -39,15 +39,19 @@ const MyDashboard = () => {
   });
 
   useEffect(() => {
+    if (!token) return;
+  
     const storedToken = Cookies.get('jwtToken');
     const decodedToken = decodeToken(storedToken);
-
+  
     if (storedToken && decodedToken && decodedToken.exp * 1000 > Date.now()) {
       setToken(storedToken);
+      fetchProfileData(); // Fetch profile data when the component mounts
     } else {
       Cookies.remove('jwtToken');
     }
   }, [setToken]);
+  
 
 
 
@@ -329,7 +333,7 @@ const MyDashboard = () => {
         <div>
           <div className='userCard'>
             <AccountCircleIcon style={{ color: 'lightgray', fontSize: '50px', marginTop: '30px' }} />
-            <h3 className='userName'>{decodeToken.user.username}</h3>
+            <h3 className='userName'>{user.username}</h3>
             <p style={{ fontSize: '15px' }}>Welcome Back</p>
           </div>
 
