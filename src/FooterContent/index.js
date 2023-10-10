@@ -16,7 +16,7 @@ function Footer() {
     <h4>Vivid Wizards mission is to make travel accessible, seamless, and unforgettable for everyone.</h4>
     <div className="footer-content">
       <div className="footer-section">
-        <img src="../images/logo_2.png" alt="Logo" height="50" className="d-inline-block align-top" />
+        <img src="../images/logo.png" alt="Logo" height="50" className="d-inline-block align-top" />
         <div className='mt-4'>
         <a href="mailto:contact@VividWizards.com?subject=Hello%20Vivid%20Wizards&body=I%20have%20a%20question%20about%20your%20services." style={{ color: "#007bff", textDecoration: "none" }}>
           contact@VividWizards.com
