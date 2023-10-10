@@ -116,7 +116,10 @@ const MyDashboard = () => {
    // fetchData();
    if (tab === 'logout') {
     handleLogout();
-   } 
+   } else if (tab === 'bookings' && tab === 'dashboard') {
+    // Fetch data only when transitioning from Dashboard to Bookings tab
+    fetchData();
+  }
   };
 
   const handleItemsPerPageChange = (e) => {
@@ -131,7 +134,7 @@ const MyDashboard = () => {
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
   };
-
+{/*cancel booking */}
   const handleCancelBooking = async (bookingId) => {
     try {
       const bookingToCancel = data.find((booking) => booking._id === bookingId);
@@ -341,7 +344,8 @@ const MyDashboard = () => {
             <hr style={{ marginTop: '0px', marginBottom: '0px' }} />
             <div
               className={`d-flex flex-row ${activeTab === 'bookings' ? 'active-item' : ''}`}
-              onClick={() => handleTabClick('bookings')}
+              onClick={() => handleTabClick('bookings')
+             }
             >
               <BookmarkAddedOutlinedIcon style={{ fontSize: '20px', margin: '5px' }} className='bookingsIcon' />
               <h1 className='bookings'>My Bookings</h1>
