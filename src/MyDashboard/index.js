@@ -77,8 +77,7 @@ const MyDashboard = () => {
       }
 
       const userEmail = decodedToken.user.email;
-      const response = await fetch(`https://travelapp-l6go.onrender.com/api/roombookings/user?page=${page}`,
-       {
+      const response = await fetch(`https://travelapp-l6go.onrender.com/api/roombookings/user?page=${page}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
