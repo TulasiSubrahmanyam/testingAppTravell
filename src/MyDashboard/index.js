@@ -90,20 +90,27 @@ const MyDashboard = () => {
         body: JSON.stringify({ email: userEmail }),
       });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const responseData = await response.json();
-      console.log("Response Data",responseData)
-      const bookings = responseData?.bookings || [];     
-
-      setData(bookings);
-      console.log("setData",data)
-      setTotalItems(bookings.length);
-      setTotalPages(Math.ceil(bookings.length / itemsPerPage));
-      setIsLoading(false);
-    } catch (error) {
+      
+if (!response.ok) {
+  if (response.status === 404) {
+    // Handle the case where there is no data (HTTP status 404) without showing an error
+    console.log('No data found.');
+  } else {
+    // Handle other network errors or unexpected responses
+    throw new Error('Network response was not ok');
+  }
+} else {
+  // Process the response and set the data
+  const responseData = await response.json();
+  console.log("ResponceData",responseData)
+  const bookings = responseData?.bookings || [];
+  setData(bookings);
+  console.log("setData",data)
+  setTotalItems(bookings.length);
+  setTotalPages(Math.ceil(bookings.length / itemsPerPage));
+  setIsLoading(false);
+}
+} catch (error) {
       console.error('Error fetching data:', error);
       setIsLoading(false);
     }
