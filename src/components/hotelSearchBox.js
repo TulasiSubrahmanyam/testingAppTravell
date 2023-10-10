@@ -114,7 +114,7 @@
           setHotels(response.data);
         
   
-        setTimeout(() => {
+        // setTimeout(() => {
           navigate('/hotel/hotelsList/', {
             state: {
               hotels: response.data,
@@ -127,14 +127,12 @@
               isLoading: false,
             },
           });
-        }, 1000);
+        // }, 1000);
       }
       } catch (error) {
         console.error('Error fetching hotel data:', error);
         setIsLoading(false);
-        if(error.status===500){
-          alert("An error occurred: " + error.message);
-        }
+       
         const errorMessage = 'An error occurred while searching for hotels.';
         setErrorMessage(errorMessage);
         navigate('/hotel/hotelsList/', { state: { errorMessage, hotels: [], city, isLoading: false } });
