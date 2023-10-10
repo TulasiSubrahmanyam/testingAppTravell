@@ -354,8 +354,8 @@
               <button className='bookingBtn col-sm-12' onClick={searchHotels}>  {isLoading ? 'Searching...' : 'Search'}</button>
             </div>
           </div>
-        </div>        
-        <ToastContainer position='top-center ' autoClose={3000} className="toastContainer" />
+          <ToastContainer position='top-center ' autoClose={3000} className="toastContainer"/>
+        </div>       
       </div>
       </div>
     );
