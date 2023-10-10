@@ -396,4 +396,9 @@
   /* padding: 0px; */
   padding-left: 5px;
 }
+.errorImg {
+  width:100% ;
+  height: auto; /* Maintain aspect ratio */
+  
+}
 }
