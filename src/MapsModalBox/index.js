@@ -55,6 +55,7 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
   return (
     <div className='d-flex flex-column justify-content-center alignItem-center'>
       <button className='showMap'  onClick={openModal}>Open Modal <FontAwesomeIcon icon={faAngleRight} style={{ marginTop: '5px',marginLeft:'5px' }} /></button>
+    
       <div className='d-flex flex-row justify-content-center alignItem-center'>
           <Modal
           isOpen={isModalOpen}
@@ -84,9 +85,6 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
             },
           }}
         >
-        <button className='closeButton' onClick={closeModal}>
-        <FontAwesomeIcon icon={faTimes} />
-      </button>
           <MapContainer center={[lat, lng]} zoom={18} style={{ height: '400px',width:"750px",transform:'rotate(360)',transition:'transform 2s ease' }}>
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -103,7 +101,7 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
             
             </Marker>
           </MapContainer>
-          {/*<button onClick={closeModal}>Close Modal</button>*/}
+          <button onClick={closeModal}>Close Modal</button>
         </Modal>
       </div>
     
