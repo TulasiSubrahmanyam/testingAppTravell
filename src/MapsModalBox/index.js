@@ -81,8 +81,8 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
               padding: '20px',
               display: 'flex',
               flexDirection:"row",
-              justifyContent: 'center', // Center the content horizontally
-              alignItems: 'center',
+              justifyContent: 'start', // Center the content horizontally
+              alignItems: 'start',
             },
           }}
         >
@@ -102,7 +102,7 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
             
             </Marker>
           </MapContainer>
-          <div className='d-flex flex'> 
+          <div className=''> 
             <button className='closeButton' onClick={closeModal}>
             <FontAwesomeIcon icon={faTimes} />
             </button>
