@@ -5,7 +5,7 @@
     padding: 20px;
     width: 800px;
     margin: 20px auto; /* Center the modal horizontally */
-    margin-top: 50px ;
+    margin-top: 150px ;
     z-index: 1;
   }
   
@@ -27,7 +27,7 @@
       border-radius: 10px;
       padding: 20px;
       width: 100%;
-      margin: 20px auto; /* Center the modal horizontally */
+      margin: 20px ; /* Center the modal horizontally */
       /* margin-top: 50px; */
     }
   }
