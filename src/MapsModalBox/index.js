@@ -66,6 +66,7 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
               backgroundColor: 'rgba(0, 0, 0, 0.75)',
             },
             content: {
+              backgroundColor: '#f8f9fb',
               position: 'absolute',
               top: '0',
               left: '0',
@@ -76,6 +77,9 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
               overflow: 'hidden',
               borderRadius: '0',
               padding: '0',
+              display: 'flex',
+              justifyContent: 'center', // Center the content horizontally
+              alignItems: 'center',
             },
           }}
         >
