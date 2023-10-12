@@ -136,14 +136,16 @@ function HotelRoomDetails() {
                     ) : (
                       <p>No images available for this hotel.</p>
                     )}
-                    <div className='addressWithGps d-flex flex-row'>
+                    <div className='addressWithGps d-flex flex-row m-5'>
                       <FontAwesomeIcon icon={faLocationDot} style={{ color: 'rgb(116, 115, 115)', margin: '4px' }} />
                       <p>{room.address}</p>
+                      <div>
                       <MapsMobalBox 
                       lat={parseFloat(room.latitude)} 
                       lng={parseFloat(room.longitude)} 
                       hotelName={room.name}
                       hotelAddress={room.address} />
+                    </div>
                     </div>
                   </div>
                   {/*room types prices details */}

@@ -55,30 +55,33 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
   return (
     <div className='d-flex flex-column justify-content-center alignItem-center'>
       <button className='showMap'  onClick={openModal}>Open Modal <FontAwesomeIcon icon={faAngleRight} style={{ marginTop: '5px',marginLeft:'5px' }} /></button>
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Map Modal"
-        className='modalBox'
-      >
-        <MapContainer center={[lat, lng]} zoom={18} style={{ height: '400px',width:"750px",transform:'rotate(360)',transition:'transform 2s ease' }}>
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Marker position={[lat, lng]} onMouseOver={togglePopup} onMouseOut={togglePopup}>
-          
-            <Popup>
-              <div style={{margin:"0px",padding:"0px"}}>
-                <p style={{fontSize:"12px",fontWeight:'600',textAlign:'center'}}>{hotelName}</p>
-                <p style={{fontSize:"12px",textAlign:"center"}}>{hotelAddress}</p>
-              </div>
-            </Popup>
-          
-          </Marker>
-        </MapContainer>
-        {/*<button onClick={closeModal}>Close Modal</button>*/}
-      </Modal>
+      <div className='d-flex flex-row justify-content-center'>
+          <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          contentLabel="Map Modal"
+          className='modalBox'
+        >
+          <MapContainer center={[lat, lng]} zoom={18} style={{ height: '400px',width:"750px",transform:'rotate(360)',transition:'transform 2s ease' }}>
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={[lat, lng]} onMouseOver={togglePopup} onMouseOut={togglePopup}>
+            
+              <Popup>
+                <div style={{margin:"0px",padding:"0px"}}>
+                  <p style={{fontSize:"12px",fontWeight:'600',textAlign:'center'}}>{hotelName}</p>
+                  <p style={{fontSize:"12px",textAlign:"center"}}>{hotelAddress}</p>
+                </div>
+              </Popup>
+            
+            </Marker>
+          </MapContainer>
+          {/*<button onClick={closeModal}>Close Modal</button>*/}
+        </Modal>
+      </div>
+    
     </div>
   );
 }
