@@ -101,12 +101,13 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
             
             </Marker>
           </MapContainer>
-          <div className='d-flex flex'> 
-          <button className='closeButton' onClick={closeModal}>
-           <FontAwesomeIcon icon={faTimes} />
-          </button>
-        </div>
+         
         </Modal>
+        <div className='d-flex flex'> 
+        <button className='closeButton' onClick={closeModal}>
+         <FontAwesomeIcon icon={faTimes} />
+        </button>
+      </div>
       </div>
     
     </div>
