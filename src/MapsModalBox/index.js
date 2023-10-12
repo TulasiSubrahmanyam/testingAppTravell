@@ -53,7 +53,7 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
   // const position = [28.63147, 77.20812];
 
   return (
-    <div className='d-flex flex-row justify-content-center alignSelf-center'>
+    <div className='d-flex flex-column justify-content-center alignItem-center'>
       <button className='showMap'  onClick={openModal}>Open Modal <FontAwesomeIcon icon={faAngleRight} style={{ marginTop: '5px',marginLeft:'5px' }} /></button>
       <Modal
         isOpen={isModalOpen}
