@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Modal from 'react-modal'; // Import the react-modal library
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faLocationDot, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faLocationDot, faAngleRight,faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import './index.css'
 
@@ -84,6 +84,9 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
             },
           }}
         >
+        <button className='closeButton' onClick={closeModal}>
+        <FontAwesomeIcon icon={faTimes} />
+      </button>
           <MapContainer center={[lat, lng]} zoom={18} style={{ height: '400px',width:"750px",transform:'rotate(360)',transition:'transform 2s ease' }}>
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
