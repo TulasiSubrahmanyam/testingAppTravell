@@ -76,7 +76,7 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
               background: 'none',
               overflow: 'hidden',
               borderRadius: '0',
-              padding: '0',
+              padding: '20px',
               display: 'flex',
               justifyContent: 'center', // Center the content horizontally
               alignItems: 'center',
