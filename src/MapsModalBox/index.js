@@ -59,6 +59,7 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
           <Modal
           isOpen={isModalOpen}
           onRequestClose={closeModal}
+          shouldCloseOnOverlayClick={true}
           contentLabel="Map Modal"
           className='modalBox'
           style={{
