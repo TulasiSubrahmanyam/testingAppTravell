@@ -78,7 +78,7 @@ function HotelRoomDetails() {
                       </div>
                     </div>
                     {room.images && room.images.length > 0 ? (
-                      <div className='d-flex flex-row justify-content-center mt-4'>
+                      <div className='d-flex flex-row justify-content-center  mt-4'>
                         {room.images.map((image, index) => (
                           <div key={image.hotel_id + index}>
                             <div className='d-sm-flex flex-sm-column d-md-flex flex-md-row'>
