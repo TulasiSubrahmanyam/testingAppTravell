@@ -61,6 +61,23 @@ function MapsMobalBox({ lat, lng,hotelName, hotelAddress  }) {
           onRequestClose={closeModal}
           contentLabel="Map Modal"
           className='modalBox'
+          style={{
+            overlay: {
+              backgroundColor: 'rgba(0, 0, 0, 0.75)',
+            },
+            content: {
+              position: 'absolute',
+              top: '0',
+              left: '0',
+              right: '0',
+              bottom: '0',
+              border: 'none',
+              background: 'none',
+              overflow: 'hidden',
+              borderRadius: '0',
+              padding: '0',
+            },
+          }}
         >
           <MapContainer center={[lat, lng]} zoom={18} style={{ height: '400px',width:"750px",transform:'rotate(360)',transition:'transform 2s ease' }}>
             <TileLayer
