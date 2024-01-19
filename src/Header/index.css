@@ -202,7 +202,8 @@
     outline: none; /* Remove the default outline */
     border:solid 2px; /* Set the border color on focus */
     box-shadow: none; /* Remove any box shadow on focus */
-  
+    position: fixed;
+    top: 66px;
   } 
   .profileNav{
     background-color:none;
